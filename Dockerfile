@@ -8,15 +8,15 @@ RUN curl -s https://storage.googleapis.com/golang/go1.3.src.tar.gz | tar -v -C /
 
 RUN cd /usr/local/go/src && ./make.bash --no-clean 2>&1
 
-RUN mkdir -p /go/src/github.com/avesanen/wsgui
+RUN mkdir -p /go/src/github.com/avesanen/fireworks
 
 ENV PATH /usr/local/go/bin:/go/bin:$PATH
 
 ENV GOPATH /go
 
-ADD . /go/src/github.com/avesanen/wsgui
+ADD . /go/src/github.com/avesanen/fireworks
 
-WORKDIR /go/src/github.com/avesanen/wsgui
+WORKDIR /go/src/github.com/avesanen/fireworks
 
 RUN go get
 
@@ -24,4 +24,4 @@ RUN go build .
 
 RUN mkdir db
 
-CMD ./wsgui
+CMD ./fireworks
