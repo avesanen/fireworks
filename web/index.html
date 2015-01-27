@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Massive Multiplayer Fireworks</title>
+    <script src="/js/socket.io.js"></script>
+    <script data-main="/app/main.js" src="js/require.js"></script>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <canvas id="mainCanvas"></canvas>
+  </body>
+</html>
+
+
+<!--
+<script>
+
+var canvas = document.getElementById("desktop");
+var bufferCanvas = document.createElement('canvas');
+var ctx = bufferCanvas.getContext('2d');
+bufferCanvas.width = mainCanvas.width;
+bufferCanvas.height = mainCanvas.height;
+function resizeCanvas() {
+  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.height = window.innerHeight;
+}
+
+function pset(x,y,r,g,b,a) {
+  ctx.fillStyle = "rgba("+r+","+g+","+b+","+a+")";
+  ctx.fillRect( x, y, 1, 1 );
+}
+
+canvas.addEventListener('mousedown', function(evt) {
+  var rect = canvas.getBoundingClientRect();
+  var x = evt.clientX - rect.left;
+  var y = evt.clientY - rect.top;
+  socket.emit('mousedown', JSON.stringify({"x":x, "y":y}));
+});
+
+var socket = io();
+
+socket.on('connect', function(msg){
+  pset(10,10);
+});
+
+socket.on('pset', function(msg){
+  cord = JSON.parse(msg);
+  pset(cord.x, cord.y, cord.r, cord.g, cord.b, cord.a);
+});
+
+socket.on('loadPng', function(msg){
+  pngMsg = JSON.parse(msg);
+  var img = new Image();
+  img.src = "data:image/png;base64" + pngMsg.data;
+  img.onload = function () {
+    socket
+  };
+});
+
+socket.on('blit', function(msg){
+  pic = JSON.parse(msg);
+  var img = new Image();
+  img.src = "data:image/png;base64," + pic.data;
+  img.onload = function () {
+    ctx.drawImage(img, pic.x, pic.y, pic.w, pic.h);
+  };
+});
+    </script>
+  </body>
+</html>
+-->
