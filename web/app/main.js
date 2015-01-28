@@ -33,10 +33,9 @@ require(["app/app", "app/sfx"],
 			[0,255,128,255],
 		];
 
-
 		window.addEventListener('mousedown', function(e) {
-			var x = e.x;
-  			var y = e.y;
+			var x = e.x||e.clientX;
+  			var y = e.y||e.clientY;
   			socket.emit('mousedown', JSON.stringify({"x":x, "y":y}));
 		});
 
